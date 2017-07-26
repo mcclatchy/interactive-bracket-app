@@ -1,0 +1,11 @@
+{
+  "name": "data-viz-starter",
+  "version": "1.0.0",
+  "description": "Starting point for Miami Herald data viz and interactive embeds",
+  "main": "index.js",
+  "author": "aaronalbright <aaron.albright38@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "blendid": "^4.1.1"
+  }
+}
