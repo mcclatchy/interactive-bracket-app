@@ -7,5 +7,16 @@
 {% extends 'layouts/application.html' %}
 
 {% block content %}
-  <h1 data-module="example">{{ message }}</h1>
+  <div class="graphic">
+    <h3>{{ headline }}</h3>
+    <p>{{ leadin }}</p>
+    <!-- WHATEVER YOU NEED HERE -->
+    <div id="map"></div>
+
+    <div class="note">
+      <span class="source">Source: {{ source }}</span>
+      <span class="credit"><span>{{ credit }}</span> {{ email }}</span>
+    </div>
+    <div style="clear:both"></div>
+  </div>
 {% endblock %}

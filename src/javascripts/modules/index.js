@@ -1,31 +1,36 @@
-/*
-  Automatically instantiates modules based on data-attributes
-  specifying module file-names.
-*/
+import L from 'leaflet'
 
-const moduleElements = document.querySelectorAll('[data-module]')
+class Starter{
+  render() {
 
-for (var i = 0; i < moduleElements.length; i++) {
-  const el = moduleElements[i]
-  const name = el.getAttribute('data-module')
-  const Module = require(`./${name}`).default
-  new Module(el)
+  let centerMarker = [28.13013, -83.12256]
+
+  let options = {
+        attributionControl: false,
+        center: centerMarker,
+        zoom: 6,
+        scrollWheelZoom: false,
+      }
+
+  // Standard leaflet init stuff
+  const map = new L.Map('map', options);
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYWFsYnJpZ2h0LW1oIiwiYSI6ImNqM3ExYTFrbzAwdWoyd3BmOXBsdWlraWoifQ.4ZSAZpc41c39EWcwFhUjoA').addTo(map);
+
+  L.control.attribution({prefix: false})
+           .addAttribution('&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>, &copy; <a href="https://www.mapbox.com/about/maps/" target="_blank">Mapbox</a>')
+           .addTo(map);
+
+  // Snippet that helps you find and use the map center.
+  // map.on('mouseup', () => {
+  //   console.log(`${map.getCenter()}`)
+  // });
+
+  }
 }
 
-/*
-  Usage:
-  ======
+const myMap = () => {
+  new Starter().render()
+}
 
-  html
-  ----
-  <button data-module="disappear">disappear!</button>
-
-  js
-  --
-  // modules/disappear.js
-  export default class Disappear {
-    constructor(el) {
-      el.style.display = none
-    }
-  }
-*/
+export { myMap }
