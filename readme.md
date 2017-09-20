@@ -10,7 +10,6 @@ Additions:
 * jQuery
 * [Leaflet](http://leafletjs.com/)
 * [Pym.js](http://blog.apps.npr.org/pym.js/)
-* [D3](https://d3js.org/) and [Topojson](https://github.com/topojson/topojson)
 * [ESLint](http://eslint.org/)
 
 ## Installation
