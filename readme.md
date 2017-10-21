@@ -4,10 +4,9 @@
 
 This is template is designed as a starting point for embed projects for the Miami Herald.
 
-It's built on [Blendid](https://github.com/vigetlabs/blendid) (formally gul-starter).
+It's built on [Blendid](https://github.com/vigetlabs/blendid) (formally gulp-starter).
 
 Additions:
-* jQuery
 * [Leaflet](http://leafletjs.com/)
 * [Pym.js](http://blog.apps.npr.org/pym.js/)
 * [ESLint](http://eslint.org/)
@@ -27,7 +26,7 @@ yarn install
 ```
 
 ### Note
-Node 6+ is required for this package.
+Node >=6.11.1 is required for this package.
 
 ## Up and running
 `yarn start`

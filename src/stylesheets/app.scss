@@ -1,49 +1,46 @@
-@import url('http://media.miamiherald.com/static/media/projects/fonts/fonts.css');
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
-@import url('https://unpkg.com/leaflet@1.1.0/dist/leaflet.css');
 @import 'base/leaflet';
-
 // Set defaults
 * {
-  font-family:"McClatchy Sans",Helvetica,Arial,sans-serif;
+    font-family: "McClatchy Sans", Helvetica, Arial, sans-serif;
 }
 
-// General graphic styles
-.graphic{
+.graphic {
     max-width: 700px;
     border-top-width: 2px;
     border-top-style: dotted;
     border-top-color: #ccc
 }
 
-.graphic h3{
-  margin-top:10px;
-  font-family:"McClatchy Slab",Helvetica,Arial,sans-serif;
-  color: #000
+.graphic h3 {
+    margin-top: 10px;
+    font-family: "McClatchy Slab", Helvetica, Arial, sans-serif;
+    color: #000
 }
 
-.graphic p{
-  color: #000;
-  font-size:14px;
+.graphic p {
+    color: #000;
+    font-size: 14px;
 }
-.graphic .note{
-  font-size:11px;
-  span {
-    width: 50%;
-    margin: 10px 0px;
-  }
+
+.graphic .note {
+    font-size: 11px;
+    span {
+        width: 50%;
+        margin: 10px 0px;
+    }
 }
 
 .graphic .source {
-  text-align: left;
-  float: left;
+    text-align: left;
+    float: left;
 }
 
 .graphic .credit {
-	float: right;
-  text-align: right;
-  span {
-      width: 50%;
-    	font-weight: 500
-  }
+    float: right;
+    text-align: right;
+    span {
+        width: 50%;
+        font-weight: 500
+    }
 }
