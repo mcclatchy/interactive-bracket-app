@@ -1,16 +1,108 @@
-{% extends 'layouts/application.html' %}
-
-{% block content %}
-  <div class="graphic">
-    <h3>{{ headline }}</h3>
-    <p>{{ lede }}</p>
-    <!-- WHATEVER YOU NEED HERE -->
-    <div id="map"></div>
-
-    <div class="note">
-      <span class="source">Source: {{ source }}</span>
-      <span class="credit"><span>{{ credit }}</span> {{ email }}</span>
+{% extends 'layouts/application.html' %} {% block content %}
+<section id="tournament">
+  {% include 'layouts/logo.html' %}
+  <div class="container group-a">
+    <div class="bracket bracket-one">
+      <div class="label">World cuisine</div>
+      <div class="round round1">
+        <div class="round-details">Round 1<br><span class="date">March 00</span>
+        </div>
+      </div>
+      <div class="round round2">
+        <div class="round-details">
+          Round 2<br>
+          <span class="date">March 03</span>
+        </div>
+      </div>
+      <div class="round round3">
+        <div class="round-details">Round 3<br><span class="date">March 06</span>
+        </div>
+      </div>
+      <div class="round round4">
+        <div class="round-details">Round 4
+          <br>
+          <span class="date">March 08</span>
+        </div>
+      </div>
     </div>
-    <div style="clear:both"></div>
+
+    <div class="bracket bracket-two">
+      <div class="label">Local Faves</div>
+      <div class="round round4b">
+        <div class="round-details">Round 4<br>
+          <span class="date">March 08</span>
+        </div>
+      </div>
+      <div class="round round3b">
+        <div class="round-details">Round 3<br><span class="date">March 06</span>
+        </div>
+      </div>
+      <div class="round round2b">
+        <div class="round-details">Round 2<br><span class="date">March 03</span>
+        </div>
+      </div>
+      <div class="round round1b">
+        <div class="round-details">Round 1<br><span class="date">March 00</span></div>
+      </div>
+    </div>
   </div>
+  <div class="container champion">
+
+    <div class="semi">
+      <div class="round-details">Semifinals<br>
+        <span class="date">March 10</span>
+      </div>
+    </div>
+
+    <div class="plate">
+      <img src="./images/plate.svg" alt="Munch Madness Plate">
+    </div>
+
+    <div class="final">
+      <div class="round-details">finals<br>
+        <span class="date">March 12</span>
+      </div>
+    </div>
+
+    <div class="semib">
+      <div class="round-details">Semifinals<br>
+        <span class="date">March 10</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="container group-b">
+    <div class="bracket bracket-one">
+      <div class="label">Fine dining</div>
+      <div class="round round1">
+
+      </div>
+      <div class="round round2">
+
+      </div>
+      <div class="round round3">
+
+      </div>
+      <div class="round round4">
+
+      </div>
+    </div>
+
+    <div class="bracket bracket-two">
+      <div class="label">Hidden gems</div>
+      <div class="round round4b">
+
+      </div>
+      <div class="round round3b">
+
+      </div>
+      <div class="round round2b">
+
+      </div>
+      <div class="round round1b">
+
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

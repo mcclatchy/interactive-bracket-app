@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232.4 232.4">
+  <defs>
+    <style>
+      .a {
+        fill: #fff;
+      }
+
+      .b {
+        fill: #cfd1d2;
+      }
+    </style>
+  </defs>
+  <title>Asset 2</title>
+  <g>
+    <circle class="a" cx="116.2" cy="116.2" r="116.2"/>
+    <circle class="b" cx="116" cy="115.7" r="76"/>
+    <circle class="a" cx="116" cy="121.7" r="76"/>
+  </g>
+</svg>

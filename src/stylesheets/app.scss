@@ -1,46 +1,15 @@
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
-@import 'base/leaflet';
-// Set defaults
-* {
-    font-family: "McClatchy Sans", Helvetica, Arial, sans-serif;
-}
+@import 'base/bracket';
+// @import 'base/bracket-lines';
+@import 'base/bracket-logo';
 
-.graphic {
-    max-width: 700px;
-    border-top-width: 2px;
-    border-top-style: dotted;
-    border-top-color: #ccc
-}
+@import 'base/finals';
 
-.graphic h3 {
-    margin-top: 10px;
-    font-family: "McClatchy Slab", Helvetica, Arial, sans-serif;
-    color: #000
-}
-
-.graphic p {
-    color: #000;
-    font-size: 14px;
-}
-
-.graphic .note {
-    font-size: 11px;
-    span {
-        width: 50%;
-        margin: 10px 0px;
-    }
-}
-
-.graphic .source {
-    text-align: left;
-    float: left;
-}
-
-.graphic .credit {
-    float: right;
-    text-align: right;
-    span {
-        width: 50%;
-        font-weight: 500
+.winner {
+    // color: #24BC46;
+    opacity: 0.7 !important;
+    .fa-check-circle {
+        position: absolute;
+        left: -15px;
+        top: 25%;
     }
 }

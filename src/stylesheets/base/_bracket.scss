@@ -1,0 +1,195 @@
+body {
+  font-family: 'McClatchy Sans', sans-serif;
+  min-height: 100%;
+  margin: 0;
+  background: linear-gradient(to top, #F9BA2F 0%, #f9432f 100%);
+}
+
+#tournament {
+  background-color: rgba(255, 255, 255, 0);
+  padding: 10px 0;
+  font-size: 11px;
+}
+
+.label {
+  font-family: "McClatchy Slab";
+  position: absolute;
+  z-index: 0;
+  background: linear-gradient(to top left, #24BC46 0%, #208699 75%);
+  // background: rgba(37, 37, 37, 0.25);
+  color: #fff;
+  font-size: 1.75em;
+  align-self: center;
+  margin-top: 1em;
+  padding: 10px 16px;
+  border-radius: 25px; 
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  height: 20px;
+  line-height: 25px;
+}
+
+.container.group-a {
+  margin-top: 15px;
+}
+
+.group-b .label {
+  margin-top: 0;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.bracket {
+  display: flex;
+  width: 50%;
+  flex-direction: row;
+  justify-content: center;
+}
+.champion {
+  width: 50%;
+  justify-content: space-around;
+  > div {
+    width: 25%;
+  }
+}
+
+.round {
+  display: flex;
+  flex-direction: column;
+  width: 97%;
+}
+
+.round3b, .round4b {
+  margin-right: -8%;
+}
+.round3, .round4 {
+  margin-left: -8%;
+}
+
+.bracket-one .round {
+  margin-right: 1.5%;
+}
+
+.bracket-two   .round  {
+  margin-left: 1.5%;
+}
+
+.matchup {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  padding: 8px 0;
+  height: 65px;
+  transition: all 0.2s;
+  list-style-type: none;
+}
+
+.team {
+  font-size: 13px;
+  padding: 0 5px;
+  margin: 3px 0;
+  height: 28px;
+  line-height: 28px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  border-radius: 3px;
+}
+
+[class*="round2"] .matchup{
+  padding: 48px 0;
+}
+
+[class*="round3"] .matchup {
+  padding: 128px 0;
+}
+
+[class*="round4"] .matchup {
+  padding: 290px 0;
+}
+
+.round-details {
+  font-family: 'McClatchy Sans Cond', sans-serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: rgb(249, 219, 47);
+  text-transform: uppercase;
+  text-align: center;
+  height: 40px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, .75);
+}
+
+.champion .round-details {
+  color: rgb(249, 219, 47);
+}
+
+.date {
+  letter-spacing: 1px;
+  font-family: 'McClatchy Sans', sans-serif;
+  color: #fff;
+  font-weight: normal;
+  font-size: .7em;
+}
+.champion li,
+.round li {
+  background-color: #fff;
+  box-shadow: none;
+  opacity: 0.45;
+}
+
+.current li {
+  opacity: 1;
+}
+
+.current li.team {
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  z-index: 6;
+}
+
+.vote-options {
+  display: block;
+  height: 52px;
+}
+
+@media screen and (max-width: 900px) {
+  .container:not(.champion) {
+    flex-direction: column;
+  }
+  .bracket,
+  .champion {
+    width: 95%;
+    margin: 35px 2.5%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #tournament {
+    padding-top: 20px;
+  }
+  .bracket {
+    width: 96%;
+    margin: 25px 2%;
+  }
+  .round {
+    width: 17.5%;
+  }
+  .current {
+    flex-grow: .5;
+  }
+  .container.group-a {
+    margin-top: 0;
+  }
+  .group-b .label {
+    margin-top: 0;
+  }
+  .round-details {
+    font-size: 1.2em;
+    height: 40px;
+  }
+}

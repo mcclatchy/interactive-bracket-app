@@ -1,0 +1,120 @@
+$line-color: rgba(240, 240, 240, 0.4);
+
+.matchup::before {
+  position: absolute;
+  border-radius: 3px;
+  content: '';
+  width: 62%;
+}
+
+.round1b .matchup {
+  // top
+  &:nth-last-of-type(2n)::before {
+    border-top: 2px solid $line-color;
+    border-left: 2px solid $line-color;
+    height: 10%;
+    top: 51%;
+    right: 95%;
+  }
+  // bottom
+  &:nth-of-type(2n)::before {
+    border-bottom: 2px solid $line-color;
+    border-left: 2px solid $line-color; 
+    top: 43%;
+    height: 10%;
+    right: 95%;
+  }
+}
+
+.round2b .matchup {
+  &:nth-last-of-type(2n)::before {
+    border-top: 2px solid $line-color;
+    border-left: 2px solid $line-color;
+    height: 33%;
+    top: 49%;
+    right: 100%;
+  }
+  &:nth-of-type(2n)::before {
+    border-bottom: 2px solid $line-color;
+    border-left: 2px solid $line-color; 
+    top: 16%;
+    height: 33%;
+    right: 100%;
+  }
+}
+
+.round3b .matchup {
+  &:nth-last-of-type(2n)::before {
+    border-top: 2px solid $line-color;
+    border-left: 2px solid $line-color;
+    height: 41%;
+    top: 50%;
+    right: 100%;
+  }
+  &:nth-of-type(2n)::before {
+    border-bottom: 2px solid $line-color;
+    border-left: 2px solid $line-color; 
+    top: 8%;
+    height: 41%;
+    right: 100%;
+  }
+}
+
+.round1 > .matchup:nth-last-of-type(2n) {
+  &::before {
+    border-top: 2px solid $line-color;
+    border-right: 2px solid $line-color; 
+    top: 48%;
+    height: 16%;
+  left: 100%;
+  }
+}
+
+.round1 > .matchup:nth-of-type(2n) {
+  &::before {
+  border-bottom: 2px solid $line-color;
+  border-right: 2px solid $line-color; 
+  top: 33%;
+  height: 16%;
+  left: 100%;
+  }
+}
+
+.round2 > .matchup:nth-last-of-type(2n) {
+  &::before {
+    border-top: 2px solid $line-color;
+    border-right: 2px solid $line-color; 
+    top: 49%;
+    height: 33%; 
+  left: 100%;
+  }
+}
+.round2 > .matchup:nth-of-type(2n) {
+  &::before {
+    border-bottom: 2px solid $line-color;
+    border-right: 2px solid $line-color; 
+    top: 16%;
+    height: 33%;
+  left: 100%;
+  }
+}
+
+.round3 .matchup:nth-last-of-type(2n) {
+  &::before {
+    border-top: 2px solid $line-color;
+    border-right: 2px solid $line-color; 
+    top: 50%;
+    height: 41%;
+  left: 100%;
+  }
+}
+
+.round3 .matchup:nth-of-type(2n) {
+  &::before {
+    border-bottom: 2px solid $line-color;
+    border-right: 2px solid $line-color; 
+    top: 8%;
+    height: 41%;
+  left: 100%;
+  }
+}
