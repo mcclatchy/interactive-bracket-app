@@ -1,10 +1,10 @@
-$line-color: rgba(240, 240, 240, 0.4);
+$line-color: rgba(240, 240, 240, 0.33);
 
 .matchup::before {
   position: absolute;
   border-radius: 3px;
   content: '';
-  width: 62%;
+  width: 60%;
 }
 
 .round1b .matchup {
@@ -12,16 +12,18 @@ $line-color: rgba(240, 240, 240, 0.4);
   &:nth-last-of-type(2n)::before {
     border-top: 2px solid $line-color;
     border-left: 2px solid $line-color;
-    height: 10%;
-    top: 51%;
+    width: 55%;
+    height: 15%;
+    top: 49%;
     right: 95%;
   }
   // bottom
   &:nth-of-type(2n)::before {
     border-bottom: 2px solid $line-color;
     border-left: 2px solid $line-color; 
-    top: 43%;
-    height: 10%;
+    width: 55%;
+    top: 34%;
+    height: 15%;
     right: 95%;
   }
 }
@@ -30,16 +32,18 @@ $line-color: rgba(240, 240, 240, 0.4);
   &:nth-last-of-type(2n)::before {
     border-top: 2px solid $line-color;
     border-left: 2px solid $line-color;
-    height: 33%;
-    top: 49%;
-    right: 100%;
+    width: 30%;
+    height: 80%;
+    top: 49.5%;
+    right: 95%;
   }
   &:nth-of-type(2n)::before {
     border-bottom: 2px solid $line-color;
     border-left: 2px solid $line-color; 
-    top: 16%;
-    height: 33%;
-    right: 100%;
+    width: 30%;  
+    bottom: 49.5%;
+    height: 80%;
+    right: 95%;
   }
 }
 
@@ -47,16 +51,18 @@ $line-color: rgba(240, 240, 240, 0.4);
   &:nth-last-of-type(2n)::before {
     border-top: 2px solid $line-color;
     border-left: 2px solid $line-color;
-    height: 41%;
+    width: 30%;
+    height: 208%;
     top: 50%;
-    right: 100%;
+    right: 95%;
   }
   &:nth-of-type(2n)::before {
     border-bottom: 2px solid $line-color;
-    border-left: 2px solid $line-color; 
-    top: 8%;
-    height: 41%;
-    right: 100%;
+    border-left: 2px solid $line-color;
+    width: 30%; 
+    bottom: 50%;
+    height: 208%;
+    right: 95%;
   }
 }
 
@@ -64,9 +70,10 @@ $line-color: rgba(240, 240, 240, 0.4);
   &::before {
     border-top: 2px solid $line-color;
     border-right: 2px solid $line-color; 
-    top: 48%;
-    height: 16%;
-  left: 100%;
+    width: 55%;
+    top: 49%;
+    height: 15%;
+    left: 95%;
   }
 }
 
@@ -74,47 +81,52 @@ $line-color: rgba(240, 240, 240, 0.4);
   &::before {
   border-bottom: 2px solid $line-color;
   border-right: 2px solid $line-color; 
+  width: 55%;
   top: 33%;
-  height: 16%;
-  left: 100%;
+  height: 15%;
+  left: 95%;
   }
 }
 
 .round2 > .matchup:nth-last-of-type(2n) {
   &::before {
     border-top: 2px solid $line-color;
-    border-right: 2px solid $line-color; 
+    border-right: 2px solid $line-color;
+    width: 30%; 
     top: 49%;
-    height: 33%; 
-  left: 100%;
+    height: 81%; 
+    left: 95%;
   }
 }
 .round2 > .matchup:nth-of-type(2n) {
   &::before {
     border-bottom: 2px solid $line-color;
-    border-right: 2px solid $line-color; 
-    top: 16%;
-    height: 33%;
-  left: 100%;
+    border-right: 2px solid $line-color;
+    width: 30%; 
+    bottom: 49%;
+    height: 81%;
+    left: 95%;
   }
 }
 
 .round3 .matchup:nth-last-of-type(2n) {
   &::before {
     border-top: 2px solid $line-color;
-    border-right: 2px solid $line-color; 
+    border-right: 2px solid $line-color;
+    width: 30%; 
     top: 50%;
-    height: 41%;
-  left: 100%;
+    height: 205%;
+    left: 95%;
   }
 }
 
 .round3 .matchup:nth-of-type(2n) {
   &::before {
     border-bottom: 2px solid $line-color;
-    border-right: 2px solid $line-color; 
-    top: 8%;
-    height: 41%;
-  left: 100%;
+    border-right: 2px solid $line-color;
+    width: 30%; 
+    bottom: 49%;
+    height: 205%;
+    left: 95%;
   }
 }

@@ -1,11 +1,13 @@
 @import 'base/bracket';
-// @import 'base/bracket-lines';
+@import 'base/bracket-lines';
 @import 'base/bracket-logo';
 
 @import 'base/finals';
+@import 'base/popup';
+
 
 .winner {
-    // color: #24BC46;
+    color: #24BC46;
     opacity: 0.7 !important;
     .fa-check-circle {
         position: absolute;

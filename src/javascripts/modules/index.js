@@ -7,7 +7,7 @@ async function tournament() {
   } catch (e) {
     console.log(e);
   } finally {
-    // Returns active (current) round
+    // Returns active, current round
     round = getBracket(sheet)
   }
   return round;
@@ -30,7 +30,8 @@ function getBracket(data) {
 
   let completed = [];
 
-  for (let i in result) {
+  let i;
+  for (i in result) {
     if (!result[i].includes("") && !i.includes('b', -1)) completed.push(i); 
   }
 
@@ -48,14 +49,15 @@ function appendMatchups(object) {
            finals = document.querySelector(`.champion .${key}`);
 
           // Iterates through key values by groups of two
-          for (let i = 0; i < object[key].length; i += 2) {
+          let i;
+          for (i = 0; i < object[key].length; i += 2) {
               if (object[key][i] === 'x') {
                   object[key][i] = "";
                   object[key][i+1] = "";
               }
 
               let matchup = document.createElement('ul');
-              matchup.className = 'matchup';
+              matchup.className = `matchup m-${(i+2)/2}`;
               matchup.innerHTML = `<li class="team">${object[key][i]}</li><li class="team">${object[key][i + 1]}</li>`;
 
               // Sorts matchups into respective group

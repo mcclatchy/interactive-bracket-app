@@ -2,8 +2,22 @@
     position: absolute;
     align-self: center;
     z-index: -1;
-    width: 25% !important;
-    img {
+    width: 25%;
+    svg {
+        opacity: .9;
         filter: drop-shadow(1px 3px 3px rgba(0, 0, 0, .5)); 
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .champion {
+        height: 370px;
+        .matchup .team {
+            opacity: 1;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+        }
+    }
+    .plate {
+        width: 80%;
     }
 }

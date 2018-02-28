@@ -9,6 +9,11 @@ body {
   background-color: rgba(255, 255, 255, 0);
   padding: 10px 0;
   font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  > div:not(.champion) {
+    width: 100%;
+  }
 }
 
 .label {
@@ -18,7 +23,7 @@ body {
   background: linear-gradient(to top left, #24BC46 0%, #208699 75%);
   // background: rgba(37, 37, 37, 0.25);
   color: #fff;
-  font-size: 1.75em;
+  font-size: 1.65em;
   align-self: center;
   margin-top: 1em;
   padding: 10px 16px;
@@ -27,6 +32,7 @@ body {
   letter-spacing: 1.5px;
   height: 20px;
   line-height: 25px;
+  user-select: none;
 }
 
 .container.group-a {
@@ -51,7 +57,7 @@ body {
 .champion {
   width: 50%;
   justify-content: space-around;
-  > div {
+  > div:not(.plate) {
     width: 25%;
   }
 }
@@ -62,29 +68,45 @@ body {
   width: 97%;
 }
 
-.round3b, .round4b {
+.round3b {
+  margin-right: -10%;
+}
+.round3 {
+  margin-left: -10%;
+}
+.round4b {
   margin-right: -8%;
 }
-.round3, .round4 {
+.round4 {
   margin-left: -8%;
 }
 
 .bracket-one .round {
   margin-right: 1.5%;
+  &.round3, &.round2 {
+    margin-right: 0;
+  }
 }
 
 .bracket-two   .round  {
   margin-left: 1.5%;
+  &.round3b, &.round2b {
+    margin-left: 0;
+  }
 }
 
 .matchup {
   position: relative;
-  margin: 0;
+  padding: 0;
   width: 100%;
-  padding: 8px 0;
+  margin: 8px 0;
   height: 65px;
   transition: all 0.2s;
   list-style-type: none;
+}
+
+.current .matchup {
+  cursor: pointer;
 }
 
 .team {
@@ -93,22 +115,21 @@ body {
   margin: 3px 0;
   height: 28px;
   line-height: 28px;
-  white-space: nowrap;
   overflow: hidden;
   position: relative;
   border-radius: 3px;
 }
 
 [class*="round2"] .matchup{
-  padding: 48px 0;
+  margin: 48.5px 0;
 }
 
 [class*="round3"] .matchup {
-  padding: 128px 0;
+  margin: 129.5px 0;
 }
 
 [class*="round4"] .matchup {
-  padding: 290px 0;
+  margin: 291px 0;
 }
 
 .round-details {
@@ -121,10 +142,6 @@ body {
   text-align: center;
   height: 40px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, .75);
-}
-
-.champion .round-details {
-  color: rgb(249, 219, 47);
 }
 
 .date {
@@ -157,18 +174,30 @@ body {
   height: 52px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 700px) {
   .container:not(.champion) {
     flex-direction: column;
   }
   .bracket,
   .champion {
     width: 95%;
-    margin: 35px 2.5%;
+    margin: 15px 2.5%;
+  }
+
+  .logo-container {
+    order: -2;
+  }
+  .champion {
+    order: -1;
+    align-items: center;
+    flex-direction: column;
+    > div:not(.plate) {
+      width: 35%;
+    }
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
   #tournament {
     padding-top: 20px;
   }
@@ -177,10 +206,10 @@ body {
     margin: 25px 2%;
   }
   .round {
-    width: 17.5%;
+    width: 96%;
   }
   .current {
-    flex-grow: .5;
+    flex-grow: 1;
   }
   .container.group-a {
     margin-top: 0;
@@ -189,7 +218,7 @@ body {
     margin-top: 0;
   }
   .round-details {
-    font-size: 1.2em;
+    font-size: 1.35em;
     height: 40px;
   }
 }
