@@ -57,7 +57,7 @@ function appendMatchups(object) {
               }
 
               let matchup = document.createElement('ul');
-              matchup.className = `matchup m-${(i+2)/2}`;
+              matchup.className = 'matchup';
               matchup.innerHTML = `<li class="team">${object[key][i]}</li><li class="team">${object[key][i + 1]}</li>`;
 
               // Sorts matchups into respective group

@@ -7,34 +7,48 @@ class Popup {
     this.popup = `
     <div class="popup-background">
       <div class="popup">
-      <i class="fas fa-times-circle fa-lg popup__close"></i>
+      <i class="fas fa-times-circle popup__close"></i>
+      <div class="popup__loading"></div>
+      <div class="popup__poll"></div>
       <div class="popup__content"></div>
       </div>
     </div>`;
   }
   init() {
     let locations = this.data;
-    let popup = this.popup;
-    $('.matchup').click(e => {
-      e.preventDefault();
+    $('.current .matchup').click(e => {
       e.stopPropagation();
+      e.preventDefault();
       let matchup = e.currentTarget;
       locations.forEach(i => {
-        let teams = `${$(matchup)
+        let team1 = $(matchup)
           .find('li:first-of-type')
-          .text()} vs. ${$(matchup)
+          .text()
+        let team2 = $(matchup)
           .find('li:last-of-type')
-          .text()}`;
-        let current = $(matchup)
-          .parent()
-          .hasClass('current');
-        if(i.matchup == teams && current) {
-          if (!$('.popup-background').length) $('body').append(popup);
+          .text()
+        let teams = `${team1} vs. ${team2}`;
+        if(i.matchup == teams) {
+          if (!$('.popup-background').length) $('body').append(this.popup);
           $('.popup-background').addClass('visible');
 
-          $('.popup__content').empty()
+          $('.popup__content').html(`
+          <p>${i.team1}</p>
+          <p>${i.team2}</p>
+          `)
 
-          postscribe($('.popup__content'), `<script type="text/javascript" src="https://secure.polldaddy.com/p/${i.id}.js"><\/script>`);
+
+          postscribe(
+            $('.popup__poll'),
+            `<script type="text/javascript" src="https://secure.polldaddy.com/p/${
+              i.id
+            }.js"><\/script>`,
+            {
+              done: function() {
+                $('.popup__loading').hide()
+              }
+            }
+          );
 
           this.closePopup();
         }
@@ -45,19 +59,22 @@ class Popup {
     let closeBtn = document.querySelector('.popup__close')
     const close = () => {
       $('.popup-background').removeClass('visible');
+      $('.popup__poll').empty();
+      $('.popup__loading').show();
     }
     closeBtn.addEventListener('click', close, false)
 
     $('.visible').click(function(e) {
+      e.stopPropagation()
        if (this !== e.target) return
-       $('.popup-background').removeClass('visible');
+       close()
     })
   }
 
 }
 
 export const popup = () => {
-  get('./pollDaddy.json', function(data) {
+  get('./pollDaddy.json', (data) => {
     new Popup(data).init()
   });
 };

@@ -15,3 +15,30 @@
         top: 25%;
     }
 }
+
+.how-to {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #fff;
+    font-size: .95em;
+    letter-spacing: 1px;
+    z-index: 7;
+    margin-top: 20px;
+    transition: top .5s ease-in-out;
+    p {
+        display: inline-block;
+        font-weight: bold;
+        padding: 8px 20px;
+        background: linear-gradient(to top right, #24BC46 0%, #208699 75%);
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.75);
+        border-radius: 25px;
+        margin: 0 auto;
+    }
+}
+
+.move {
+    top: 0;
+}

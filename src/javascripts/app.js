@@ -20,4 +20,16 @@ tournament()
       }
     });
   }
+
+  $(window).scroll(function() {
+    let scroll = document.querySelector('.logo-container').getBoundingClientRect();
+    if (scroll.bottom < 0) {
+      $('.how-to').addClass('move')
+    }
+    else {
+      $('.how-to').removeClass('move');
+    }
+    
+  });
+
 });

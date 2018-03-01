@@ -18,13 +18,64 @@
 
 .popup {
     position: relative;
-    color: #000;
+    background: #fff;
+    color: #333;
     z-index: 8;
+    width: 90%;
+    border-radius: 12px;
     .popup__close {
         position: absolute;
         right: 5px;
-        top: 8px;
+        top: 5px;
         z-index: 9;
+        font-size: 1.5em;
         cursor: pointer;
+    }
+    .popup__title {
+        padding: 15px 15px 0 15px;
+        font-weight: bold;
+    }
+    .popup__content {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    .popup__poll {
+        display: flex;
+        justify-content: center;
+    }
+    .popup__loading {
+        display: inline-block;
+        position: relative;
+        margin-top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 7px solid rgba(0, 0, 0, 0.2);
+        border-bottom-color: #F9422F;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        animation: donut-spin 1s linear infinite;
+    }
+    .pds-box {
+        border: none !important;
+    }
+    .pds-box-outer {
+        padding: 10px 0 !important;
+    }
+}
+
+@keyframes donut-spin {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+@media (min-width: 700px) {
+    .popup {
+        width: 50%;
+    }
+}
+@media (min-width: 1000px) {
+    .popup {
+        width: 30%;
     }
 }

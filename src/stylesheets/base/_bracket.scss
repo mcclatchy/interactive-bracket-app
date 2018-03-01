@@ -110,7 +110,7 @@ body {
 }
 
 .team {
-  font-size: 13px;
+  font-size: 12px;
   padding: 0 5px;
   margin: 3px 0;
   height: 28px;
@@ -134,7 +134,7 @@ body {
 
 .round-details {
   font-family: 'McClatchy Sans Cond', sans-serif;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-weight: bold;
   font-size: 1.5em;
   color: rgb(249, 219, 47);
@@ -146,6 +146,7 @@ body {
 
 .date {
   letter-spacing: 1px;
+  text-transform: none;
   font-family: 'McClatchy Sans', sans-serif;
   color: #fff;
   font-weight: normal;
@@ -185,10 +186,10 @@ body {
   }
 
   .logo-container {
-    order: -2;
+    order: -3;
   }
   .champion {
-    order: -1;
+    order: -2;
     align-items: center;
     flex-direction: column;
     > div:not(.plate) {
@@ -203,10 +204,10 @@ body {
   }
   .bracket {
     width: 96%;
-    margin: 25px 2%;
+    margin: 10px 2%;
   }
   .round {
-    width: 96%;
+    width: 25%;
   }
   .current {
     flex-grow: 1;
@@ -217,8 +218,21 @@ body {
   .group-b .label {
     margin-top: 0;
   }
-  .round-details {
-    font-size: 1.35em;
-    height: 40px;
+  .round2 .round-details {
+    transform: translatex(-20%);
+  }
+  .round3 .round-details {
+    transform: translatex(10%);
+  }
+  .round2b .round-details {
+    transform: translatex(20%);
+  }
+  .round3b .round-details {
+    transform: translatex(-10%);
+  }
+  .round4, .round4b {
+    .round-details {
+      transform: translateY(700%);
+    }
   }
 }

@@ -1,22 +1,20 @@
 [
   {
-    "round": 1,
-    "matchup": "Pubbelly vs. Macchialia",
-    "id": 9944040
+    "round": "1",
+    "matchup": "1 Pubbelly vs. 16 Doce Provisions",
+    "id": 9944040,
+    "team1":
+      "Pubbelly led the way in Sunset Harbour by letting Jose Mendin explore his creativity with Asian-Latin fusion small plates, from bacon-wrapped dates with chorizo and duck ravioli to noodles and chili soft shell crab to make him a five-time James Beard award-nominated chef.",
+    "team2":
+      "Little Havana's Doce Provisions is a fusion of the flavors found on Calle Ocho with culinary twists such as pickled habanero peppers, Sriracha-honey mayo, aji amarillo and calabaza purees to elevate dishes that included Thai-style buns, roasted pork and rock shrimp mac and cheese."
   },
   {
-    "round": 1,
-    "matchup": "Suviche vs. La Mar",
-    "id": 9948420
-  },
-  {
-    "round": 1,
-    "matchup": "Chef Creole vs. Soul Tavern",
-    "id": 9949049
-  },
-  {
-    "round": "1b",
-    "matchup": "Palacio de los Jugos vs. Big Cheese",
-    "id": 9949065
+    "round": "1",
+    "matchup": "8 Phuc Yea vs. 9 Chef Creole",
+    "id": 9948420,
+    "team1":
+      "\"Viet-Cajun\" cuisine from the husband-wife duo of sommelier Aniece Meinhold and chef Cesar Zapata turns out creative dishes from fall-apart caramel pork riblets, smoked and soaked in ginger, to Caja China duck in hoisin sauce that make the menu here one to remember.",
+    "team2":
+      "Born in Jamaica to Haitian parents, chef Wilkinson Sejour brought the flavors of both those countries to the Miami masses at Chef Creole, where the griot (fried pork) is succulent, the oxtail falls off the bone and the seafood is crispy, all spiked with a side of vinegary, pickled pikliz."
   }
 ]

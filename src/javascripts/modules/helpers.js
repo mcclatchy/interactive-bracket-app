@@ -11,4 +11,4 @@ function get(url, success) {
   return xhr;
 }
 
-export {get};
+export { get }
