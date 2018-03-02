@@ -21,7 +21,6 @@ body {
   position: absolute;
   z-index: 0;
   background: linear-gradient(to top left, #24BC46 0%, #208699 75%);
-  // background: rgba(37, 37, 37, 0.25);
   color: #fff;
   font-size: 1.65em;
   align-self: center;
@@ -37,6 +36,9 @@ body {
 
 .container.group-a {
   margin-top: 15px;
+  @media screen and (min-width: 701px) {
+    position: relative;
+  }
 }
 
 .group-b .label {
@@ -198,7 +200,7 @@ body {
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 425px) {
   #tournament {
     padding-top: 20px;
   }

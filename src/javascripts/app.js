@@ -1,9 +1,7 @@
-import tournament from './modules'
-import { popup } from './modules/popup'
+import tournament from './modules';
+import { popup } from './modules/popup';
 
-tournament()
-.then(r => {
-
+tournament().then(r => {
   popup();
 
   let currentRound = r.slice(-1);
@@ -16,20 +14,21 @@ tournament()
         .find('[class*="round"]:not(.current) .matchup .team');
 
       for (let each of prevMatchup) {
-        if (each.innerText === this.innerText) $(each).addClass('winner')
+        if (each.innerText === this.innerText) $(each).addClass('winner');
       }
     });
   }
 
-  $(window).scroll(function() {
-    let scroll = document.querySelector('.logo-container').getBoundingClientRect();
-    if (scroll.bottom < 0) {
-      $('.how-to').addClass('move')
-    }
-    else {
-      $('.how-to').removeClass('move');
-    }
-    
-  });
-
+  if (window.innerWidth <= 700) {
+    $(window).scroll(function() {
+      let scroll = document
+        .querySelector('.logo-container')
+        .getBoundingClientRect();
+      if (scroll.bottom < 0) {
+        $('.how-to').addClass('how-to_visible');
+      } else {
+        $('.how-to').removeClass('how-to_visible');
+      }
+    });
+  }
 });
