@@ -34,7 +34,7 @@ body {
   user-select: none;
 }
 
-.container.group-a {
+.mm-container.group-a {
   margin-top: 15px;
   @media screen and (min-width: 701px) {
     position: relative;
@@ -44,7 +44,7 @@ body {
 .group-b .label {
   margin-top: 0;
 }
-.container {
+.mm-container {
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
@@ -178,7 +178,7 @@ body {
 }
 
 @media screen and (max-width: 700px) {
-  .container:not(.champion) {
+  .mm-container:not(.champion) {
     flex-direction: column;
   }
   .bracket,
@@ -186,12 +186,8 @@ body {
     width: 95%;
     margin: 15px 2.5%;
   }
-
-  .logo-container {
-    order: -3;
-  }
   .champion {
-    order: -2;
+    order: 5;
     align-items: center;
     flex-direction: column;
     > div:not(.plate) {
@@ -214,7 +210,7 @@ body {
   .current {
     flex-grow: 1;
   }
-  .container.group-a {
+  .mm-container.group-a {
     margin-top: 0;
   }
   .group-b .label {

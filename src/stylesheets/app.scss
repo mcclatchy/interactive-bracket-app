@@ -62,3 +62,7 @@
 .how-to_visible {
     top: 0;
 }
+
+.round-details > br:not(.mm-br) {
+    display: none;
+}

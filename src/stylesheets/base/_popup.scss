@@ -31,8 +31,9 @@
         right: 5px;
         top: 5px;
         z-index: 9;
-        font-size: 1.5em;
+        font-size: 1.755em;
         cursor: pointer;
+        color: #F9422F;
     }
     .popup__title {
         padding: 15px 15px 0 15px;
@@ -86,5 +87,6 @@
 @media (min-width: 1000px) {
     .popup {
         width: 30%;
+        max-width: 400px;
     }
 }
