@@ -1,29 +1,3 @@
-const sheetKey = '1OJzkgLBC0dUCN66iPQKcf26whIcqoiPqcORCR5wRgUk';
-
-async function tournament() {
-  let sheet, round;
-  try {
-    sheet = await fetchSheet()
-  } catch (e) {
-    console.log(e);
-  } finally {
-    // Returns active, current round
-    round = getBracket(sheet)
-  }
-  return round;
-}
-
-function fetchSheet() {
-  return new Promise(resolve => {
-    Tabletop.init({
-      key: sheetKey,
-      callback: resolve,
-      prettyColumnNames: false,
-      simpleSheet: true
-    });
-  });
-}
-
 function getBracket(data) {
   const result = toColumnArray(data);
   appendMatchups(result);
@@ -40,9 +14,6 @@ function getBracket(data) {
 
 function appendMatchups(object) {
     for (const key in object) {
-        // Deletes unecessary columns
-        delete object.legend;
-        delete object.rowNumber;
         if (object.hasOwnProperty(key)) {
           let groupA = document.querySelector(`.group-a .${key}`),
            groupB = document.querySelector(`.group-b .${key}`),
@@ -101,4 +72,4 @@ function toColumnArray(data) {
   return output;
 }
 
-export default tournament;
+export default getBracket;

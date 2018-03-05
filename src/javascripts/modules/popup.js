@@ -1,9 +1,9 @@
-import { get } from './helpers'
-import postscribe from 'postscribe'
+import { getIDs } from './helpers';
+import postscribe from 'postscribe';
 
 class Popup {
   constructor(data) {
-    this.data = JSON.parse(data);
+    this.data = data
     this.popup = `
     <div class="popup-background">
       <div class="popup">
@@ -23,58 +23,57 @@ class Popup {
       locations.forEach(i => {
         let team1 = $(matchup)
           .find('li:first-of-type')
-          .text()
+          .text();
         let team2 = $(matchup)
           .find('li:last-of-type')
-          .text()
+          .text();
+
         let teams = `${team1} vs. ${team2}`;
-        if(i.matchup == teams) {
+        if (i.matchup == teams) {
           if (!$('.popup-background').length) $('body').append(this.popup);
           $('.popup-background').addClass('visible');
 
-          $('.popup__content').html(`
+          if (i.team1 != undefined) {
+            $('.popup__content').html(`
+          <p class="team-title"><b>${team1.replace(/(^[0-9]+ )/g, '')}</b></p>
           <p>${i.team1}</p>
+          <p class="team-title"><b>${team2.replace(/(^[0-9]+ )/g, '')}</b></p>
           <p>${i.team2}</p>
-          `)
-
+          `);
+          }
 
           postscribe(
             $('.popup__poll'),
-            `<script type="text/javascript" src="https://secure.polldaddy.com/p/${
-              i.id
-            }.js"><\/script>`,
+            `<script type="text/javascript" src="https://secure.polldaddy.com/p/${i.id}.js"><\/script>`,
             {
               done: function() {
-                $('.popup__loading').hide()
+                $('.popup__loading').hide();
               }
             }
           );
 
           this.closePopup();
         }
-      })
-    })
+      });
+    });
   }
   closePopup() {
-    let closeBtn = document.querySelector('.popup__close')
+    let closeBtn = document.querySelector('.popup__close');
     const close = () => {
       $('.popup-background').removeClass('visible');
       $('.popup__poll').empty();
       $('.popup__loading').show();
-    }
-    closeBtn.addEventListener('click', close, false)
+    };
+    closeBtn.addEventListener('click', close, false);
 
     $('.visible').click(function(e) {
-      e.stopPropagation()
-       if (this !== e.target) return
-       close()
-    })
+      e.stopPropagation();
+      if (this !== e.target) return;
+      close();
+    });
   }
-
 }
 
 export const popup = () => {
-  get('./pollDaddy.json', (data) => {
-    new Popup(data).init()
-  });
+  getIDs().then(r => new Popup(r).init())
 };

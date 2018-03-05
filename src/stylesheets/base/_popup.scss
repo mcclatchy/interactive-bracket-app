@@ -39,8 +39,14 @@
         font-weight: bold;
     }
     .popup__content {
-        padding: 10px 15px;
+        padding: 0 15px;
         font-size: 14px;
+        .team-title {
+            margin: 0;
+        }
+        p:not(.team-title) {
+            margin-top: 0;
+        }
     }
     .popup__poll {
         display: flex;

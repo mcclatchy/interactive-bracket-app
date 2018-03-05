@@ -1,10 +1,14 @@
-import tournament from './modules';
+import appendBracket from './modules';
 import { popup } from './modules/popup';
+import getSheet from './modules/getSheet';
 
-tournament().then(r => {
+getSheet().then(sheet => {
+
+  let round = appendBracket(sheet);
+
   popup();
 
-  let currentRound = r.slice(-1);
+  let currentRound = round.slice(-1);
   $(`[class*="${currentRound}"]`).addClass('current');
 
   if (!$('[class*="round1"]').hasClass('current')) {
@@ -24,11 +28,15 @@ tournament().then(r => {
       let scroll = document
         .querySelector('.logo-container')
         .getBoundingClientRect();
-      if (scroll.bottom < 0) {
-        $('.how-to').addClass('how-to_visible');
+      let el = $('.how-to')
+      if (scroll.bottom < 80) {
+        el.addClass('how-to_visible');
       } else {
-        $('.how-to').removeClass('how-to_visible');
+        el.removeClass('how-to_visible');
       }
     });
+  }
+  else {
+    $('.how-to > p > span').text('Click');
   }
 });
