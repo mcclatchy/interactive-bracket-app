@@ -1,17 +1,4 @@
-function get(url, success) {
-  var xhr = window.XMLHttpRequest
-    ? new XMLHttpRequest()
-    : new ActiveXObject('Microsoft.XMLHTTP');
-  xhr.open('GET', url);
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState > 3 && xhr.status == 200) success(xhr.responseText);
-  };
-  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-  xhr.send();
-  return xhr;
-}
-
-function getIDs() {
+function get() {
   return fetch(`https://spreadsheets.google.com/feeds/list/1OJzkgLBC0dUCN66iPQKcf26whIcqoiPqcORCR5wRgUk/2/public/full?alt=json`)
     .then(r => r.json())
     .then(json => {
@@ -30,4 +17,4 @@ function getIDs() {
 
 }
 
-export { getIDs }
+export { get }

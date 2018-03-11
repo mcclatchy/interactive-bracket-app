@@ -1,4 +1,4 @@
-import { getIDs } from './helpers';
+import { get } from './helpers';
 import postscribe from 'postscribe';
 
 class Popup {
@@ -75,5 +75,5 @@ class Popup {
 }
 
 export const popup = () => {
-  getIDs().then(r => new Popup(r).init())
+  get().then(r => new Popup(r).init())
 };

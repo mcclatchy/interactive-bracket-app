@@ -14,6 +14,8 @@ function getBracket(data) {
 
 function appendMatchups(object) {
     for (const key in object) {
+      // Deletes unecessary columns
+      delete object.legend;
         if (object.hasOwnProperty(key)) {
           let groupA = document.querySelector(`.group-a .${key}`),
            groupB = document.querySelector(`.group-b .${key}`),

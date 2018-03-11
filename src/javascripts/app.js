@@ -1,6 +1,7 @@
 import appendBracket from './modules';
 import { popup } from './modules/popup';
-import getSheet from './modules/getSheet';
+import bracket from './modules/bracket.json';
+// import getSheet from './modules/getSheet';
 
 // adds overview css to docuent for compatibility
 function addCss(fileName) {
@@ -62,8 +63,8 @@ window.addEventListener('load', function() {
 
   // addCss('https://media.miamiherald.com/static/media/projects/2018/munch-madness/stylesheets/app.css');
 
-  getSheet().then(sheet => {
-    let round = appendBracket(sheet);
+  // getSheet().then(sheet => {
+    let round = appendBracket(bracket);
 
     popup();
 
@@ -97,7 +98,7 @@ window.addEventListener('load', function() {
     } else {
       $('.how-to > p > span').text('Click');
     }
-  });
+  // });
 
 }, {
   once: true,
