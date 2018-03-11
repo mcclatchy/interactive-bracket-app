@@ -1,9 +1,8 @@
 import appendBracket from './modules';
-import { popup } from './modules/popup';
 import bracket from './modules/bracket.json';
-// import getSheet from './modules/getSheet';
+import { popup } from './modules/popup';
 
-// adds overview css to docuent for compatibility
+// Adds CSS to docuent for compatibility
 function addCss(fileName) {
     let head = document.head,
         link = document.createElement('link')
@@ -15,7 +14,7 @@ function addCss(fileName) {
     head.appendChild(link)
 }
 
-// adds polyfill script to documeant headd
+// Adds polyfill script to documeant headd
 function addJs(scriptName) {
     let head = document.head,
         script = document.createElement('script')
@@ -66,10 +65,11 @@ window.addEventListener('load', function() {
   // getSheet().then(sheet => {
     let round = appendBracket(bracket);
 
-    popup();
-
     let currentRound = round.slice(-1);
     $(`[class*="${currentRound}"]`).addClass('current');
+
+    popup(); // This may need to moved down if not using Fetch
+
 
     if (!$('[class*="round1"]').hasClass('current')) {
       $('.current .team').each(function() {

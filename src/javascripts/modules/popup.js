@@ -1,5 +1,5 @@
-import { get } from './helpers';
 import postscribe from 'postscribe';
+import polls from './pollDaddy.json';
 
 class Popup {
   constructor(data) {
@@ -75,5 +75,5 @@ class Popup {
 }
 
 export const popup = () => {
-  get().then(r => new Popup(r).init())
+  new Popup(polls).init() 
 };
