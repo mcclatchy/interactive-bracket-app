@@ -4,6 +4,7 @@
 
 @import 'base/finals';
 @import 'base/popup';
+@import 'base/animations';
 
 
 .winner {
@@ -64,5 +65,9 @@
 }
 
 .round-details > br:not(.mm-br) {
+    display: none;
+}
+
+.ap-relink-wrapper {
     display: none;
 }

@@ -10,13 +10,15 @@
     bottom: 0;
     z-index: 7;
     background-color: rgba(0, 0, 0, 0.50);
+    opacity: 0;
+    transition: opacity .2s linear, visibilty .2s .2s linear;
 }
 
 .popup-background.visible {
+    opacity: 1;
     visibility: visible;
-    &:active, &:focus, &:focus-within {
-        // background: blue;
-    }
+    transition: opacity .2s linear, visibilty .2s 0s linear;
+
 }
 
 .popup {
@@ -88,5 +90,15 @@
     .popup {
         width: 30%;
         max-width: 400px;
+    }
+}
+
+@media (max-width: 320px) {
+    .popup {
+        width: 95%;
+    }
+    .popup__content {
+        height: 175px;
+        overflow-y: scroll;
     }
 }

@@ -17,7 +17,7 @@ body {
 }
 
 .label {
-  font-family: "McClatchy Slab";
+  font-family: "McClatchy Slab", Georgia, Times,"Times New Roman",serif;
   position: absolute;
   z-index: 0;
   background: linear-gradient(to top left, #24BC46 0%, #208699 75%);
@@ -220,13 +220,13 @@ body {
     transform: translatex(-20%);
   }
   .round3 .round-details {
-    transform: translatex(10%);
+    transform: translatex(25%);
   }
   .round2b .round-details {
     transform: translatex(20%);
   }
   .round3b .round-details {
-    transform: translatex(-10%);
+    transform: translatex(-25%);
   }
   .round4, .round4b {
     .round-details {
