@@ -28,7 +28,7 @@
     z-index: 8;
     width: 90%;
     border-radius: 12px;
-    .popup__close {
+    i.popup__close {
         position: absolute;
         right: 5px;
         top: 5px;
@@ -36,6 +36,15 @@
         font-size: 1.755em;
         cursor: pointer;
         color: #F9422F;
+    }
+    p.popup__close {
+        cursor: pointer;
+        text-align: center;
+        color: #F9422F;
+        font-size: 14px;
+        margin: 0;
+        padding-bottom: 1em;
+        letter-spacing: .5px;
     }
     .popup__title {
         padding: 15px 15px 0 15px;
@@ -54,6 +63,20 @@
     .popup__poll {
         display: flex;
         justify-content: center;
+        .poll-error {
+            margin: .5em 0;
+            > p {
+                text-align: center;
+                margin: .5em 0;
+            }
+            a {
+                color: #208699;
+            }
+            .fa-exclamation-triangle {
+                font-size: 2em;
+                color: #f9a82f;
+            }
+        }
     }
     .popup__loading {
         display: inline-block;

@@ -1,4 +1,5 @@
-/* getBracket function. Takes one object array param then converts it column arrays 
+/* 
+* Takes one object array param then converts it column arrays 
 * Retruns a string with the highest completed round from highest round that's not blank.
 */
 export default function(data) {
@@ -34,9 +35,7 @@ function appendMatchups(object) {
 
         let matchup = document.createElement('ul');
         matchup.className = 'matchup';
-        matchup.innerHTML = `<li class="team">${
-          object[key][i]
-        }</li><li class="team">${object[key][i + 1]}</li>`;
+        matchup.innerHTML = `<li class="team">${object[key][i]}</li><li class="team">${object[key][i + 1]}</li>`;
 
         // Sorts matchups into respective group
         switch (true) {
@@ -62,10 +61,8 @@ function appendMatchups(object) {
 
 function toColumnArray(data) {
   const output = {};
-  let item;
-  // iterate through each row
-  for (let i in data) {
-    item = data[i];
+  
+  data.forEach(item => {
     for (let prop in item) {
       if (item.hasOwnProperty(prop)) {
         // if the key doesn't exist in the output, add it
@@ -74,6 +71,7 @@ function toColumnArray(data) {
         if (item[prop] !== '') output[prop].push(item[prop]);
       }
     }
-  }
+  })
+
   return output;
 }

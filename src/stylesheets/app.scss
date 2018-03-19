@@ -1,3 +1,4 @@
+@import 'base/fonts';
 @import 'base/bracket';
 @import 'base/bracket-lines';
 @import 'base/bracket-logo';
@@ -56,7 +57,12 @@
             box-shadow: none;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.55);
         }
+    }
+}
 
+@media (max-width: 320px) {
+    .how-to > p {
+        font-size: 13px;
     }
 }
 

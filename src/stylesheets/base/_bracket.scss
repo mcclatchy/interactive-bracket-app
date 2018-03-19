@@ -14,6 +14,9 @@ body {
   > div:not(.champion) {
     width: 100%;
   }
+  @media (min-width: 730px) and (max-width: 812px), (-webkit-device-pixel-ratio : 3) and (orientation: landscape) {
+    margin: 0 1.5em;
+  }
 }
 
 .label {
@@ -172,11 +175,6 @@ body {
   z-index: 6;
 }
 
-.vote-options {
-  display: block;
-  height: 52px;
-}
-
 @media screen and (max-width: 700px) {
   .mm-container:not(.champion) {
     flex-direction: column;
@@ -216,14 +214,8 @@ body {
   .group-b .label {
     margin-top: 0;
   }
-  .round2 .round-details {
-    transform: translatex(-20%);
-  }
   .round3 .round-details {
     transform: translatex(25%);
-  }
-  .round2b .round-details {
-    transform: translatex(20%);
   }
   .round3b .round-details {
     transform: translatex(-25%);
