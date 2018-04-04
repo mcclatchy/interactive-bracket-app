@@ -60,7 +60,7 @@ function appendMatchups(object) {
 }
 
 function toColumnArray(data) {
-  const output = {};
+  let output = {};
   
   data.forEach(item => {
     for (let prop in item) {

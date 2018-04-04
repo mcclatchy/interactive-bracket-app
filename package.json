@@ -10,11 +10,9 @@
     "blendid": "^4.4.2",
     "dploy": "^1.2.0",
     "eslint": "^4.9.0",
-    "fast-async": "^6.3.1",
     "google-spreadsheet": "^2.0.4",
     "postscribe": "^2.0.8",
-    "pym.js": "^1.3.1",
-    "tabletop": "^1.5.2"
+    "pym.js": "^1.3.1"
   },
   "scripts": {
     "start": "yarn run blendid",

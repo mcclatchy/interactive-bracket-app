@@ -23,7 +23,6 @@ class Popup {
     $('p.popup__close').hide();
 
     $('.current .matchup').click(e => {
-      e.stopPropagation();
       e.preventDefault();
       let matchup = e.currentTarget;
 
@@ -77,7 +76,7 @@ class Popup {
       $('.popup').addClass('slide-out-top');
       $('.popup').removeClass('slide-in-top');
       setTimeout(() => {
-        $('.popup__poll').empty();
+        $('.popup__poll').empty()
         $('.popup__loading').show();
         $('.popup-background').removeClass('visible');
       }, 250);

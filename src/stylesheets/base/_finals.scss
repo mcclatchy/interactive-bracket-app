@@ -9,11 +9,17 @@
     }
 }
 
+
 @media screen and (max-width: 425px) {
     .champion {
         height: 370px;
     }
     .plate {
         width: 80%;
+    }
+    .final {
+        background-color: rgba(0, 0, 0, .33);
+        padding: 25px;
+        border-radius: 50px;
     }
 }
