@@ -2,40 +2,37 @@ import appendBracket from './modules';
 import bracket from './modules/bracket.json';
 import { popup } from './modules/popup';
 import { svg } from './modules/svg';
-import { addCSS, addJS, addFinal} from './modules/helpers';
+import { addFinal } from './modules/helpers';
 
 function override() {
   // Disables default site styles
-  document.querySelector('link[href*="/wps/build/css/theme.markets/"]').disabled = true;
+  document.querySelector(
+    'link[href*="/wps/build/css/"]'
+  ).disabled = true;
   // removes unnecssary DOM elements
   let toRemove = [
     'header',
-    '#footer',
+    '#footer2018',
+    'nav#mainNav',
     '#wallpaperWrapper',
     '#floorboard',
     '.overlay'
   ];
-  toRemove.forEach(function(el) {
-    document.querySelector(el).remove()
-  });
+
+  for (const each of toRemove) {
+    document.querySelector(each).remove();
+  }
 }
 
 document.addEventListener(
   'DOMContentLoaded',
   function() {
-
-    // override();
-    addJS('https://cdn.polyfill.io/v2/polyfill.js?features=es6');
+    override();
     $('.champion .plate').html(svg);
 
-    addFinal();
+    // Only used after tournament closes
+    // addFinal();
 
-
-    addCSS([
-      'https://use.fontawesome.com/releases/v5.0.7/css/all.css',
-      // 'http://pubsys.miamiherald.com/static/media/projects/2018/munch-madness/stylesheets/app.css'
-    ]);
-    
     let round = appendBracket(bracket);
 
     let currentRound = round.slice(-1);
@@ -55,27 +52,24 @@ document.addEventListener(
       });
     }
     if (window.innerWidth <= 700) {
+      $('.champion--congrats').removeClass('label');
 
-      $('.champion--congrats').removeClass('label')
-
-      // ONLY NEEDED DURING ACTIVE MADNESS
-      // setTimeout(() => {
-      //   $('.how-to').addClass('how-to_visible');
-      // }, 3000);
-
-      // $(window).scroll(function() {
-      //   let scroll = document
-      //     .querySelector('.logo-container')
-      //     .getBoundingClientRect();
-      //   let el = $('.how-to');
-      //   if (scroll.bottom < 160) {
-      //     el.addClass('how-to_visible');
-      //   } else {
-      //     el.removeClass('how-to_visible');
-      //   }
-      // });
-    } else {
-      // $('.how-to > p > span').text('Click');
+      // Disable after tournament closes
+      $(window).scroll(function() {
+        let scroll = document
+          .querySelector('.logo-container')
+          .getBoundingClientRect();
+        let el = $('.how-to');
+        if (scroll.bottom < 160) {
+          el.addClass('how-to_visible');
+        } else {
+          el.removeClass('how-to_visible');
+        }
+      });
+    }
+    else {
+      // Disbale this too
+      $('.how-to > p > span').text('Click');
     }
   },
   {
