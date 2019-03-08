@@ -6,8 +6,8 @@ class Popup {
     this.data = data;
     this.popup = `
     <div class="popup-background">
+    <i class="fas fa-times-circle popup__close"></i>
       <div class="popup">
-      <i class="fas fa-times-circle popup__close"></i>
       <div class="popup__loading"></div>
       <div class="popup__poll"></div>
       <div class="popup__content"></div>
@@ -17,12 +17,13 @@ class Popup {
   }
   init() {
     let matchups = this.data;
+    let popup = this;
     $('body').append(this.popup);
 
     this.closePopup();
     $('p.popup__close').hide();
 
-    $('.current .matchup').click(e => {
+    $('.current .matchup').click(function(e) {
       e.preventDefault();
       let matchup = e.currentTarget;
 
@@ -35,11 +36,11 @@ class Popup {
       let teams = `${team1} vs. ${team2}`;
 
       matchups.forEach(i => {
+        $('.popup-background').addClass('visible');
+        $('.popup')
+          .removeClass('slide-out-top')
+          .addClass('slide-in-top');
         if (i.matchup == teams) {
-          $('.popup-background').addClass('visible');
-          $('.popup')
-            .removeClass('slide-out-top')
-            .addClass('slide-in-top');
 
           if (i.team1 != undefined) {
             $('.popup__content')
@@ -56,16 +57,24 @@ class Popup {
             $('.popup__poll'),
             `<script type="text/javascript" src="https://secure.polldaddy.com/p/${i.id}.js"><\/script>`,
             {
-              done: () => {
+              done: function () {
                 $('.popup__loading').hide();
-                this.voteClick();
+                popup.voteClick();
               },
-              error: () => {
+              error: function() {
                 $('.popup__poll').html(`<div class="poll-error"><p><i class="fas fa-exclamation-triangle"></i></p><p>Unable to load poll<br/><b><a target="_blank" href="https://polldaddy.com/poll/${i.id}/">Click here to vote</a></b></p></div>`).addClass('poll-error');
                 $('.popup__close').show();
               }
             }
           );
+        }
+        else {
+          $('.popup__content')
+            .html(
+              `
+              <p class="team-title">No poll available for this matchup</p>
+              `
+            ).show();
         }
       });
     });
@@ -98,6 +107,6 @@ class Popup {
   }
 }
 
-export const popup = () => {
+export const initPopup = () => {
   new Popup(polls).init();
 };

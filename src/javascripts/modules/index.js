@@ -1,18 +1,17 @@
-/* 
-* Takes one object array param then converts it column arrays 
-* Retruns a string with the highest completed round from highest round that's not blank.
-*/
+/*
+ * Takes one object array param then converts it column arrays
+ * Retruns a string with the highest completed round from highest round that's not blank.
+ */
 export default function(data) {
   const result = toColumnArray(data);
-  appendMatchups(result);
-  
   let completed = [];
-
   let i;
+
+  appendMatchups(result);
   for (i in result) {
     if (!result[i].includes('') && !i.includes('b', -1)) completed.push(i);
   }
-
+  
   return completed;
 }
 
@@ -21,9 +20,9 @@ function appendMatchups(object) {
     // Deletes unecessary columns
     delete object.legend;
     if (object.hasOwnProperty(key)) {
-      let groupA = document.querySelector(`.group-a .${key}`),
-        groupB = document.querySelector(`.group-b .${key}`),
-        finals = document.querySelector(`.champion .${key}`);
+      let groupA = document.querySelector(`.group-a .${key}`);
+      let groupB = document.querySelector(`.group-b .${key}`);
+      let finals = document.querySelector(`.champion .${key}`);
 
       // Iterates through key values by groups of two
       let i;
@@ -35,7 +34,9 @@ function appendMatchups(object) {
 
         let matchup = document.createElement('ul');
         matchup.className = 'matchup';
-        matchup.innerHTML = `<li class="team">${object[key][i]}</li><li class="team">${object[key][i + 1]}</li>`;
+        matchup.innerHTML = `<li class="team">${
+          object[key][i]
+        }</li><li class="team">${object[key][i + 1]}</li>`;
 
         // Sorts matchups into respective group
         switch (true) {
@@ -61,7 +62,7 @@ function appendMatchups(object) {
 
 function toColumnArray(data) {
   let output = {};
-  
+
   data.forEach(item => {
     for (let prop in item) {
       if (item.hasOwnProperty(prop)) {
@@ -71,7 +72,7 @@ function toColumnArray(data) {
         if (item[prop] !== '') output[prop].push(item[prop]);
       }
     }
-  })
+  });
 
   return output;
 }

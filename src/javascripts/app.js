@@ -1,6 +1,6 @@
 import appendBracket from './modules';
 import bracket from './modules/bracket.json';
-import { popup } from './modules/popup';
+import { initPopup } from './modules/popup';
 import { svg } from './modules/svg';
 import { addFinal } from './modules/helpers';
 
@@ -30,17 +30,23 @@ document.addEventListener(
     override();
     $('.champion .plate').html(svg);
 
-    // Only used after tournament closes
-    // addFinal();
-
     let round = appendBracket(bracket);
+    let final = false;
 
     let currentRound = round.slice(-1);
+    
     $(`[class*="${currentRound}"]`).addClass('current');
 
-    popup();
+    initPopup();
+
+    currentRound == "final" ? (final = true) : (final = false);
+
+    if(final) {
+      addFinal("Bocas House");
+    }
 
     if (!$('[class*="round1"]').hasClass('current')) {
+      // Addes green color to previus match ups
       $('.current .team').each(function() {
         let prevMatchup = $(this)
           .parents()
@@ -54,22 +60,24 @@ document.addEventListener(
     if (window.innerWidth <= 700) {
       $('.champion--congrats').removeClass('label');
 
-      // Disable after tournament closes
-      $(window).scroll(function() {
-        let scroll = document
-          .querySelector('.logo-container')
-          .getBoundingClientRect();
-        let el = $('.how-to');
-        if (scroll.bottom < 160) {
-          el.addClass('how-to_visible');
-        } else {
-          el.removeClass('how-to_visible');
-        }
-      });
+      if(!final) {
+        $(window).scroll(function () {
+          let scroll = document
+            .querySelector('.logo-container')
+            .getBoundingClientRect();
+          let el = $('.how-to');
+          if (scroll.bottom < 160) {
+            el.addClass('how-to_visible');
+          } else {
+            el.removeClass('how-to_visible');
+          }
+        });
+      }
     }
     else {
-      // Disbale this too
-      $('.how-to > p > span').text('Click');
+      if(!final) {
+        $('.how-to > p > span').text('Click');
+      }
     }
   },
   {
