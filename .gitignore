@@ -1,4 +1,5 @@
 node_modules
 public
+src/html/data/layouts/application.html
 .vscode
 .DS_Store

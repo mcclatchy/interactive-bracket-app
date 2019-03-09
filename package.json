@@ -1,5 +1,5 @@
 {
-  "name": "munch-madness-app",
+  "name": "interactive-bracket-app",
   "version": "1.0.0",
   "description": "Interactive bracket with PollDaddy voting built in",
   "main": "index.js",
