@@ -1,7 +1,5 @@
 import postscribe from 'postscribe';
-import polls from './pollDaddy.json';
-
-class Popup {
+export default class PollModal {
   constructor(data) {
     this.data = data;
     this.popup = `
@@ -14,6 +12,9 @@ class Popup {
       <p class="popup__close">Close</p>
       </div>
     </div>`;
+
+    this.init();
+
   }
   init() {
     let matchups = this.data;
@@ -106,7 +107,3 @@ class Popup {
     );
   }
 }
-
-export const initPopup = () => {
-  new Popup(polls).init();
-};
