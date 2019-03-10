@@ -1,6 +1,5 @@
 # Miami Herald Interactive Bracket
 ## About
----
 This bracket was designed to display an interactive bracket using Google Sheets as a back end and Polldaddy as a front-end voting mechanism.
 
 Bracket organizners fill out the formatted Google Sheet with competeing teams (it currently supports up to 64). The other sheet must be filled with PollDaddy IDs and whatever poll title format you decide on. (More on this in Getting Started)
@@ -14,7 +13,6 @@ This bracekt has two possible approaches.
 The latter approach is prefered to reduce the depenecey on Google Sheet's API and avoid possible rate limits.
 
 ## Getting started
----
 
 Things you'll need:
 * [Yarn](https://yarnpkg.com/en/)
@@ -74,7 +72,7 @@ Use `yarn build` to package everything into `app.js`.
 
 ## Known Issues
 
-Polldaddy has shown to be pretty hackable and/or cheated. There's nothing stopping a bot to from automatically voiting. Even with IP restrctions, proxies can usually get around it. I'm not even confident using reCaptcha works sufficently to justify is use as the expense of user friendliness.
+Polldaddy has shown to be pretty hackable and/or cheated. There's nothing stopping a bot to from automatically voiting. Even with IP restrctions, proxies can usually get around it. I'm not even confident using reCaptcha works sufficently to justify its use at the expense of user-friendliness.
 
 ## To Do
 
