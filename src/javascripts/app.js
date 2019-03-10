@@ -1,26 +1,7 @@
-import appendBracket from './modules';
-// import bracket from './modules/bracket.json';
+import { appendBracket } from './modules';
 import PollModal from './modules/popup';
 import { svg } from './modules/svg';
 import { addFinal } from './modules/helpers';
-
-function overrideDefault() {
-  // Disables default site styles
-  document.querySelector('link[href*="/wps/build/css/"]').disabled = true;
-  // removes unnecssary DOM elements
-  let toRemove = [
-    'header',
-    '#footer2018',
-    'nav#mainNav',
-    '#wallpaperWrapper',
-    '#floorboard',
-    '.overlay'
-  ];
-
-  for (const each of toRemove) {
-    document.querySelector(each).remove();
-  }
-}
 
 document.addEventListener(
   'DOMContentLoaded',
@@ -82,14 +63,35 @@ document.addEventListener(
       }
     });
 
-    fetch('jsonfile.json')
-    .then(r => r.json())
-    .then(pollData => {
-      let ppoups = new PollModal(pollData);
-    });
+    fetch(
+      'https://gist.githubusercontent.com/aaronalbright/c9b0a474e18fc7cedd877de7037b8e02/raw/613cb79a946b1105bd4930228196334fe23d2ffb/pollData.json'
+    )
+      .then(r => r.json())
+      .then(pollData => {
+        const polls = new PollModal(pollData);
+        polls.init();
+      });
   },
   {
     once: true,
     capture: false
   }
 );
+
+function overrideDefault() {
+  // Disables default site styles
+  document.querySelector('link[href*="/wps/build/css/"]').disabled = true;
+  // removes unnecssary DOM elements
+  let toRemove = [
+    'header',
+    '#footer2018',
+    'nav#mainNav',
+    '#wallpaperWrapper',
+    '#floorboard',
+    '.overlay'
+  ];
+
+  for (const each of toRemove) {
+    document.querySelector(each).remove();
+  }
+}

@@ -2,7 +2,7 @@
  * Takes one object array param then converts it column arrays
  * Retruns a string with the highest completed round from highest round that's not blank.
  */
-export default function(data) {
+export function appendBracket(data) {
   const result = toColumnArray(data);
   let completed = [];
   let i;

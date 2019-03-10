@@ -13,8 +13,6 @@ export default class PollModal {
       </div>
     </div>`;
 
-    this.init();
-
   }
   init() {
     let matchups = this.data;
