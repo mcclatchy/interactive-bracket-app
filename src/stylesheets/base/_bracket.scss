@@ -176,13 +176,13 @@ body {
   z-index: 6;
 }
 
-// FINAL FOUR REARRANGMENT
-
+// KEEPS LOGO AT THE TOP THROUGH ALL ROUNDS
 .logo-container {
   order: -2;
 }
 
-.mm-container.champion {
+// MOVES FINAL-FOUR TO TOP OF BRACKET
+.mm-container.champion.final-four {
   order: -1;
   margin: 7em auto;
 }
@@ -264,6 +264,7 @@ body {
 }
 
 .champion--congrats {
+  @extend .label;
   position: absolute;
   align-self: flex-end;
   width: auto !important;
@@ -296,7 +297,7 @@ body {
   }
 }
 
-@media (max-width: 425px ) {
+@media (max-width: 767px ) {
   [class*='semi'] {
     opacity: 0;
   }
@@ -306,10 +307,13 @@ body {
     transform: translateY(300%);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
     font-family: "McClatchy Slab", Georgia, Times,"Times New Roman",serif;
-    background-color: #fff;
+    background: #fff;
     color: #000;
     padding: 10px 16px;
     border-radius: 3px;
+    height: auto;
+    text-transform: none;
+    letter-spacing: unset;
   }
 }
 
