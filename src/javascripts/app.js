@@ -1,16 +1,21 @@
-import { appendBracket } from './modules';
-import { addFinal } from './modules/helpers';
+import { appendBracket } from './modules/parse-bracket';
+import { PollModal } from './modules/popup';
 
 document.addEventListener(
   'DOMContentLoaded',
   function() {
-    overrideDefault();
+    // usesed Date.now() to bust FTP server cache
+    let now = Date.now();
 
+    overrideDefault();
     fetch(
-      'https://gist.githubusercontent.com/aaronalbright/f343f4f6306a9f4d0788797ddf208c0e/raw/d9cb1b0686c1b19f1da9d5e8e46e37fa8252362f/bracket.json'
+      `https://gist.githubusercontent.com/aaronalbright/14db19f42f2575f5e92f1920b5c76958/raw/ff43f0972e5547586ee3c9c22ce85bc531d277f7/bracket-data.json?x=${now}`
     )
       .then(res => res.json())
-      .then(bracket => {
+      .then(data => {
+        const bracket = data['bracket_data'];
+        const pollData = data['poll_ids'];
+
         let round = appendBracket(bracket);
         let final = false;
 
@@ -23,6 +28,9 @@ document.addEventListener(
         if (currentRound.includes('semi') || currentRound == 'final') {
           $('.mm-container.champion').addClass('final-four');
         }
+
+        let polls = new PollModal(pollData);
+        polls.init();
 
         if (final) {
           addFinal('Bocas House');
@@ -60,15 +68,6 @@ document.addEventListener(
           }
         }
       });
-
-    fetch(
-      'https://gist.githubusercontent.com/aaronalbright/c9b0a474e18fc7cedd877de7037b8e02/raw/613cb79a946b1105bd4930228196334fe23d2ffb/pollData.json'
-    )
-      .then(r => r.json())
-      .then(pollData => {
-        const polls = new PollModal(pollData);
-        polls.init();
-      });
   },
   {
     once: true,
@@ -92,4 +91,9 @@ function overrideDefault() {
   for (const each of toRemove) {
     document.querySelector(each).remove();
   }
+}
+
+function addFinal(winner) {
+  let congrats = `<div class="champion--congrats label">Congratulations to ${winner}!</div>`;
+  $('.champion').append(congrats);
 }

@@ -1,5 +1,5 @@
 import postscribe from 'postscribe';
-export default class PollModal {
+export class PollModal {
   constructor(data) {
     this.data = data;
     this.popup = `
@@ -24,6 +24,7 @@ export default class PollModal {
 
     $('.current .matchup').click(function(e) {
       e.preventDefault();
+      
       let matchup = e.currentTarget;
 
       let team1 = $(matchup)
@@ -34,11 +35,12 @@ export default class PollModal {
         .text();
       let teams = `${team1} vs. ${team2}`;
 
+      $('.popup-background').addClass('visible');
+      $('.popup')
+        .removeClass('slide-out-top')
+        .addClass('slide-in-top');
+
       matchups.forEach(i => {
-        $('.popup-background').addClass('visible');
-        $('.popup')
-          .removeClass('slide-out-top')
-          .addClass('slide-in-top');
         if (i.matchup == teams) {
 
           if (i.team1 != undefined) {
@@ -66,14 +68,6 @@ export default class PollModal {
               }
             }
           );
-        }
-        else {
-          $('.popup__content')
-            .html(
-              `
-              <p class="team-title">No poll available for this matchup</p>
-              `
-            ).show();
         }
       });
     });
