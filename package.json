@@ -8,6 +8,7 @@
   "dependencies": {
     "blendid": "^4.4.2",
     "eslint": "^5.12.1",
+    "macaddress": "0.2.9",
     "postscribe": "^2.0.8"
   },
   "scripts": {
