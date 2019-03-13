@@ -4,13 +4,13 @@ import { PollModal } from './modules/popup';
 document.addEventListener(
   'DOMContentLoaded',
   function() {
-    // usesed Date.now() to bust FTP server cache
-    let now = Date.now();
+    
+    const bracketJSON = $('#tournament').data('src');
+    let now = Date.now(); // To prevent fetching cached file
 
     overrideDefault();
-    fetch(
-      `https://gist.githubusercontent.com/aaronalbright/14db19f42f2575f5e92f1920b5c76958/raw/ff43f0972e5547586ee3c9c22ce85bc531d277f7/bracket-data.json?x=${now}`
-    )
+
+    fetch(`${bracketJSON}?x=${now}`)
       .then(res => res.json())
       .then(data => {
         const bracket = data['bracket_data'];
