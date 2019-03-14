@@ -6,9 +6,8 @@
   "author": "aaronalbright <aaron.albright38@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "blendid": "^4.4.2",
-    "eslint": "^5.12.1",
-    "macaddress": "0.2.9",
+    "blendid": "^4.4.3",
+    "eslint": "^5.15.1",
     "postscribe": "^2.0.8"
   },
   "scripts": {
