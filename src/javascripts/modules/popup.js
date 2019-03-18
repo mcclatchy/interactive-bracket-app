@@ -81,6 +81,9 @@ export class PollModal {
         $('.popup__poll').empty()
         $('.popup__loading').show();
         $('.popup-background').removeClass('visible');
+        if($('.popup__content').hasClass('after-vote')) {
+          location.reload();
+        }
       }, 250);
     };
 
@@ -93,7 +96,7 @@ export class PollModal {
   }
   voteClick() {
     $('.pds-vote-button, .pds-view-results').click(() => {
-        $('.popup__content').hide()
+        $('.popup__content').addClass('after-vote').hide()
         $('p.popup__close').show()
       }
     );
