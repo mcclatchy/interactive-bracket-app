@@ -85,11 +85,13 @@ function overrideDefault() {
     'nav#mainNav',
     '#wallpaperWrapper',
     '#floorboard',
-    '.overlay'
+    '.overlay',
+    '.upper-nav'
   ];
 
   for (const each of toRemove) {
-    document.querySelector(each).remove();
+    let el = document.querySelector(each);
+    if (el !== null) el.remove();
   }
 }
 
